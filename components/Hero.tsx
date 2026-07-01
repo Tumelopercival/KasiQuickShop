@@ -24,17 +24,17 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-between h-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14">
 
-        {/* Heading */}
+        {/* Hero Text */}
         <div className="pt-20 md:pt-24 max-w-4xl">
 
           <h1
             className="
-              text-5xl
-              sm:text-6xl
+              text-4xl
+              sm:text-5xl
               md:text-6xl
               lg:text-7xl
               font-extrabold
-              leading-tight
+              leading-[0.95]
               text-white
             "
           >
@@ -49,11 +49,12 @@ export default function Hero() {
 
           <p
             className="
-              mt-8
-              text-lg
+              mt-6
+              text-base
+              sm:text-lg
               md:text-xl
               text-gray-300
-              max-w-2xl
+              max-w-xl
             "
           >
             Connecting entrepreneurs through technology,
@@ -62,8 +63,8 @@ export default function Hero() {
 
         </div>
 
-        {/* Buttons */}
-        <div className="pb-12 md:pb-14">
+        {/* CTA Buttons */}
+        <div className="pb-10 md:pb-14">
 
           <div
             className="
@@ -75,7 +76,6 @@ export default function Hero() {
               sm:w-auto
             "
           >
-
             <Button>
               BECOME A FOUNDER
             </Button>
