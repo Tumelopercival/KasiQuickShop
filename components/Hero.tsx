@@ -4,10 +4,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-[580px] overflow-hidden"
+      className="relative min-h-[760px] md:min-h-[680px] lg:h-[580px] overflow-hidden"
     >
       {/* Background Image */}
-
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -17,39 +16,65 @@ export default function Hero() {
       />
 
       {/* Dark Overlay */}
-
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/55" />
 
       {/* Left Gradient */}
-
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
 
       {/* Content */}
+      <div className="relative z-10 flex flex-col justify-between h-full max-w-7xl mx-auto px-6 md:px-10 lg:px-14">
 
-      <div className="relative z-10 h-full">
+        {/* Heading */}
+        <div className="pt-20 md:pt-24 max-w-4xl">
 
-        <div className="pl-14 pt-20 max-w-3xl">
-
-          <h1 className="text-5xl font-extrabold leading-none text-white">
+          <h1
+            className="
+              text-5xl
+              sm:text-6xl
+              md:text-6xl
+              lg:text-7xl
+              font-extrabold
+              leading-tight
+              text-white
+            "
+          >
             BUILDING SOUTH AFRICA'S FIRST
             <br />
-            <span className="text-yellow-400">YOUTH-OWNED</span>
+            <span className="text-yellow-400">
+              YOUTH-OWNED
+            </span>
             <br />
             RETAIL ECOSYSTEM
           </h1>
 
-          <p className="mt-8 text-xl text-gray-300 max-w-xl">
+          <p
+            className="
+              mt-8
+              text-lg
+              md:text-xl
+              text-gray-300
+              max-w-2xl
+            "
+          >
             Connecting entrepreneurs through technology,
             logistics, training and distribution.
           </p>
 
         </div>
 
-        {/* Center Buttons */}
+        {/* Buttons */}
+        <div className="pb-12 md:pb-14">
 
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
-
-          <div className="flex gap-4">
+          <div
+            className="
+              flex
+              flex-col
+              sm:flex-row
+              gap-4
+              w-full
+              sm:w-auto
+            "
+          >
 
             <Button>
               BECOME A FOUNDER
@@ -68,7 +93,6 @@ export default function Hero() {
         </div>
 
       </div>
-
     </section>
   );
 }
