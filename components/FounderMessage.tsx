@@ -2,16 +2,24 @@ import Image from "next/image";
 
 export default function FounderMessage() {
   return (
-    <section
-      id="founder"
-      className="bg-black py-20 px-8 border-t border-zinc-800"
-    >
-      <div className="max-w-[1700px] mx-auto">
+    <section className="bg-black py-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-12 items-center">
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <h2 className="text-5xl font-extrabold text-white">
+            A MESSAGE FROM THE{" "}
+            <span className="text-yellow-400">FOUNDER</span>
+          </h2>
 
-          {/* LEFT - CEO PHOTO */}
+          <p className="text-zinc-400 text-lg mt-4">
+            Why Kasi QuickShop exists and the future we're building together.
+          </p>
+        </div>
 
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* LEFT - Founder Image */}
           <div className="flex justify-center">
 
             <div className="relative">
@@ -19,19 +27,17 @@ export default function FounderMessage() {
               <Image
                 src="/founder-ceo.png"
                 alt="Tumelo Marumo"
-                width={460}
-                height={620}
-                priority
-                className="rounded-3xl shadow-2xl object-cover"
+                width={520}
+                height={720}
+                className="rounded-3xl shadow-2xl"
               />
 
               {/* Quote */}
+              <div className="absolute left-6 right-6 bottom-6 bg-zinc-900/95 backdrop-blur-md border border-yellow-500 rounded-2xl p-6">
 
-              <div className="absolute -bottom-8 left-6 right-6 bg-zinc-900 border border-yellow-500 rounded-2xl p-5 shadow-xl">
-
-                <p className="text-yellow-400 italic text-lg leading-relaxed">
-                  “If no one is coming to build the future we want,
-                  then we must become the people who do.”
+                <p className="text-yellow-400 italic text-lg font-semibold">
+                  "No one is coming to build the future we want.
+                  That responsibility belongs to us."
                 </p>
 
               </div>
@@ -40,66 +46,55 @@ export default function FounderMessage() {
 
           </div>
 
-          {/* RIGHT - MESSAGE */}
+          {/* RIGHT - Message */}
 
           <div>
 
-            <p className="uppercase tracking-[0.35em] text-yellow-400 font-bold mb-4">
-              A Message From Our Founder & CEO
-            </p>
-
-            <h2 className="text-5xl font-extrabold text-white leading-tight mb-5">
-              Building South Africa's Future,
+            <h3 className="text-4xl font-bold text-white leading-tight">
+              South Africa doesn't need another idea.
               <br />
-              Together.
-            </h2>
-
-            <h3 className="text-3xl font-bold text-yellow-400 mb-8">
-              The responsibility belongs to all of us.
+              <span className="text-yellow-400">
+                It needs people willing to build.
+              </span>
             </h3>
 
-            <div className="space-y-5 text-zinc-300 text-xl leading-8">
+            <div className="mt-8 space-y-8 text-lg leading-9 text-zinc-300">
 
               <p>
-                Kasi QuickShop was founded on a simple belief: South Africa
-                already has talented entrepreneurs, resilient communities and
-                ambitious young people. What we have lacked is an ecosystem
-                that connects opportunity, technology, infrastructure and
-                investment into a single platform that enables people to build
-                sustainable businesses and create lasting economic value.
+                When I started Kasi QuickShop, I wasn't trying to create
+                another retail business. I was trying to solve a problem
+                I've seen in our communities for years. Talented entrepreneurs
+                work hard every day, but too many are left without the
+                systems, opportunities and support they need to grow.
               </p>
 
               <p>
-                We are building far more than a network of convenience stores.
-                We are creating a national retail ecosystem that empowers
-                entrepreneurs through modern infrastructure, reliable supply
-                chains, digital technology, education and strategic
-                partnerships. Our goal is to restore economic participation,
-                create meaningful employment and strengthen township economies
-                across South Africa.
+                Kasi QuickShop is our answer to that challenge. We're building
+                a platform that brings together retail, technology, logistics,
+                training and investment into one ecosystem that gives
+                entrepreneurs a real chance to succeed. When local businesses
+                grow, communities grow with them.
               </p>
 
               <p>
-                I believe the future of our communities will not be built by
-                waiting for someone else to act—it will be built by those
-                willing to lead. I invite entrepreneurs, professionals,
-                suppliers and investors to join us in building a business that
-                creates opportunity today and leaves a legacy for generations
-                to come.
+                This isn't something I can build alone. It will take
+                entrepreneurs, professionals, suppliers, investors and every
+                South African who believes our future should be built by us.
+                If you believe in that vision, I invite you to join us.
               </p>
 
             </div>
 
             {/* Signature */}
 
-            <div className="mt-10 pt-6 border-t border-yellow-500">
+            <div className="mt-12 border-t border-yellow-500 pt-8">
 
-              <h4 className="text-4xl font-bold text-yellow-400">
+              <h4 className="text-3xl font-bold text-yellow-400">
                 Tumelo Marumo
               </h4>
 
-              <p className="text-xl text-white mt-2">
-                Founder & Chief Executive Officer
+              <p className="text-white text-xl mt-2">
+                Founder
               </p>
 
               <p className="text-zinc-500 mt-1">
