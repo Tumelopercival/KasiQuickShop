@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[760px] md:min-h-[680px] lg:h-[580px] overflow-hidden"
+      className="relative min-h-[640px] md:min-h-[680px] lg:h-[580px] overflow-hidden"
     >
       {/* Background Image */}
       <div
@@ -64,7 +64,7 @@ export default function Hero() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="pb-10 md:pb-14">
+        <div className="pb-4 md:pb-14">
 
           <div
             className="
