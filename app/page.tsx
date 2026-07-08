@@ -1,25 +1,21 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Statistics from "@/components/Statistics";
-import ProblemSolution from "@/components/ProblemSolution";
-import Ecosystem from "@/components/Ecosystem";
-import Rollout from "@/components/Rollout";
-import Impact from "@/components/Impact";
-import FounderMessage from "@/components/FounderMessage";
-import Movement from "@/components/Movement";
+import Hero from "@/components/home/Hero";
+import ProblemSolution from "@/components/home/ProblemSolution";
+import Ecosystem from "@/components/home/Ecosystem";
+import Rollout from "@/components/home/Rollout";
+import Impact from "@/components/home/Impact";
+import FounderMessage from "@/components/home/FounderMessage";
+import Movement from "@/components/home/Movement";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
-
       <Navbar />
 
       <Hero />
-
-      <Statistics />
 
       <ProblemSolution />
 
@@ -34,7 +30,6 @@ export default function Home() {
       <Movement />
 
       <Footer />
-
     </main>
   );
 }

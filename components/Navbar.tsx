@@ -1,126 +1,139 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="border-b border-yellow-500 bg-black">
-
-      {/* Desktop & Tablet */}
-
-      <div className="flex justify-between items-center px-4 sm:px-8 lg:px-12 py-6">
-
+    <nav className="fixed top-0 left-0 right-0 z-[999] bg-transparent">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
         {/* Logo */}
 
-        <div className="flex items-center">
-
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
             alt="Kasi QuickShop Logo"
             width={260}
             height={120}
             priority
-            className="w-auto h-12 sm:h-14 lg:h-auto"
+            className="h-12 w-auto lg:h-16"
           />
-
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
 
-        <div className="hidden lg:flex gap-8">
-
-          <a href="#home" className="hover:text-yellow-400 transition">
+        <div className="hidden lg:flex items-center gap-10 text-white font-medium">
+          <Link href="/" className="transition hover:text-yellow-400">
             Home
-          </a>
+          </Link>
 
-          <a href="#about" className="hover:text-yellow-400 transition">
+          <Link href="/about" className="transition hover:text-yellow-400">
             About
-          </a>
+          </Link>
 
-          <a href="#ecosystem" className="hover:text-yellow-400 transition">
+          <Link href="/ecosystem" className="transition hover:text-yellow-400">
             Ecosystem
-          </a>
+          </Link>
 
-          <a href="#investors" className="hover:text-yellow-400 transition">
+          <Link href="/investors" className="transition hover:text-yellow-400">
             Investors
-          </a>
+          </Link>
 
-          <a href="#careers" className="hover:text-yellow-400 transition">
+          <Link href="/careers" className="transition hover:text-yellow-400">
             Careers
-          </a>
+          </Link>
 
-          <a href="#contact" className="hover:text-yellow-400 transition">
+          <Link href="/contact" className="transition hover:text-yellow-400">
             Contact
-          </a>
-
+          </Link>
         </div>
 
-        {/* Desktop Button */}
+        {/* Investor Portal Button */}
 
-        <button className="hidden lg:block bg-yellow-400 text-black px-5 py-3 rounded-lg font-bold">
-
+        <Link
+          href="/investors"
+          className="hidden lg:block rounded-lg bg-yellow-400 px-6 py-3 font-bold text-black transition hover:bg-yellow-300"
+        >
           Investor Portal
-
-        </button>
+        </Link>
 
         {/* Mobile Menu Button */}
 
         <button
-          className="lg:hidden text-white text-4xl"
+          className="text-4xl text-white lg:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle navigation menu"
         >
           {mobileMenuOpen ? "✕" : "☰"}
         </button>
-
       </div>
 
       {/* Mobile Menu */}
 
       {mobileMenuOpen && (
-
-        <div className="lg:hidden border-t border-yellow-500 bg-black">
-
-          <div className="flex flex-col gap-6 px-6 py-6">
-
-            <a href="#home" onClick={() => setMobileMenuOpen(false)}>
+        <div className="lg:hidden bg-black/95 backdrop-blur-md">
+          <div className="flex flex-col gap-6 px-8 py-8 text-white">
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-yellow-400"
+            >
               Home
-            </a>
+            </Link>
 
-            <a href="#about" onClick={() => setMobileMenuOpen(false)}>
+            <Link
+              href="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-yellow-400"
+            >
               About
-            </a>
+            </Link>
 
-            <a href="#ecosystem" onClick={() => setMobileMenuOpen(false)}>
+            <Link
+              href="/ecosystem"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-yellow-400"
+            >
               Ecosystem
-            </a>
+            </Link>
 
-            <a href="#investors" onClick={() => setMobileMenuOpen(false)}>
+            <Link
+              href="/investors"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-yellow-400"
+            >
               Investors
-            </a>
+            </Link>
 
-            <a href="#careers" onClick={() => setMobileMenuOpen(false)}>
+            <Link
+              href="/careers"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-yellow-400"
+            >
               Careers
-            </a>
+            </Link>
 
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-yellow-400"
+            >
               Contact
-            </a>
+            </Link>
 
-            <button className="bg-yellow-400 text-black px-5 py-3 rounded-lg font-bold">
-
+            <Link
+              href="/investors"
+              onClick={() => setMobileMenuOpen(false)}
+              className="rounded-lg bg-yellow-400 px-6 py-3 text-center font-bold text-black transition hover:bg-yellow-300"
+            >
               Investor Portal
-
-            </button>
-
+            </Link>
           </div>
-
         </div>
-
       )}
-
     </nav>
   );
 }

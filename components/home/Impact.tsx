@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { CheckCircle, ArrowRight } from "lucide-react";
-import Container from "./ui/Container";
+import Container from "@/components/ui/Container";
 
 const impactStats = [
   { value: "20K+", label: "Stores" },
