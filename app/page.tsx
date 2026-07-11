@@ -7,7 +7,6 @@ import Ecosystem from "@/components/home/Ecosystem";
 import Rollout from "@/components/home/Rollout";
 import Impact from "@/components/home/Impact";
 import FounderMessage from "@/components/home/FounderMessage";
-import Movement from "@/components/home/Movement";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -26,8 +25,6 @@ export default function Home() {
       <Impact />
 
       <FounderMessage />
-
-      <Movement />
 
       <Footer />
     </main>

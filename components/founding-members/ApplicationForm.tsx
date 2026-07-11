@@ -1,312 +1,215 @@
+
 "use client";
 
 import { useState } from "react";
-import {
-  User,
-  Briefcase,
-  FileText,
-  Upload,
-  CheckCircle2,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Upload } from "lucide-react";
 
-const steps = [
-  {
-    number: 1,
-    title: "Personal Information",
-    icon: User,
-  },
-  {
-    number: 2,
-    title: "Professional Background",
-    icon: Briefcase,
-  },
-  {
-    number: 3,
-    title: "Your Contribution",
-    icon: FileText,
-  },
-  {
-    number: 4,
-    title: "Documents",
-    icon: Upload,
-  },
-  {
-    number: 5,
-    title: "Review",
-    icon: CheckCircle2,
-  },
+type Step = 1 | 2 | 3 | 4 | 5;
+
+type FormData = {
+  firstName:string;
+  lastName:string;
+  email:string;
+  phone:string;
+  province:string;
+  city:string;
+  profession:string;
+  otherProfession:string;
+  contribution:string;
+  company:string;
+  experience:string;
+  linkedin:string;
+  cv: File | null;
+  motivation:string;
+  value:string;
+  meetings:boolean;
+  collaboration:boolean;
+  confidentiality:boolean;
+  terms:boolean;
+};
+
+const professions = [
+  "Business Owner / Entrepreneur","CEO / Executive","General Manager","Operations Manager",
+  "Mechanical Engineer","Electrical Engineer","Civil Engineer","Industrial Engineer",
+  "Software Engineer","IT Professional","Accountant","Financial Analyst","Attorney",
+  "Architect","Marketing Professional","Retail Executive","Supply Chain Specialist",
+  "Logistics Professional","Human Resources Professional","Teacher","Researcher",
+  "Medical Doctor","Electrician","Plumber","Welder","Other (Please Specify)"
+];
+
+const contributions = [
+  "Strategic Leadership","Investment","Technology","Manufacturing",
+  "Supply Chain & Logistics","Retail Operations","Finance",
+  "Marketing & Brand","Skills Development","Partnerships","Other"
+];
+
+const provinces = [
+  "Eastern Cape","Free State","Gauteng","KwaZulu-Natal","Limpopo",
+  "Mpumalanga","North West","Northern Cape","Western Cape"
 ];
 
 export default function ApplicationForm() {
-  const [currentStep] = useState(1);
+  const [step,setStep]=useState<Step>(1);
+
+  const [formData,setFormData]=useState<FormData>({
+    firstName:"",lastName:"",email:"",phone:"",
+    province:"",city:"",
+    profession:"",otherProfession:"",
+    contribution:"",company:"",experience:"",
+    linkedin:"",cv:null,
+    motivation:"",value:"",
+    meetings:false,collaboration:false,confidentiality:false,terms:false
+  });
+
+  const update=(e:any)=>{
+    const {name,value,type,checked,files}=e.target;
+    if(type==="checkbox"){
+      setFormData(p=>({...p,[name]:checked}));
+    }else if(type==="file"){
+      setFormData(p=>({...p,cv:files?.[0]??null}));
+    }else{
+      setFormData(p=>({...p,[name]:value}));
+    }
+  };
+
+  const next=()=>setStep(s=>Math.min(5,s+1) as Step);
+  const back=()=>setStep(s=>Math.max(1,s-1) as Step);
+
+  const steps=["Personal","Professional","Motivation","Commitment","Review"];
 
   return (
-    <section
-      id="application"
-      className="bg-[#050505] py-28"
-    >
-      <div className="mx-auto max-w-6xl px-6">
+<section id="application" className="bg-[#050505] py-28">
+<div className="mx-auto max-w-6xl px-6">
+<div className="text-center max-w-3xl mx-auto">
+<p className="uppercase tracking-[0.3em] text-yellow-400 text-sm font-semibold">Founding Member Application</p>
+<h2 className="mt-5 text-5xl font-bold text-white">Begin Your Journey</h2>
+<p className="mt-5 text-zinc-400">Complete the application to express your interest in becoming a Founding Member.</p>
+</div>
 
-        {/* Heading */}
+<div className="mt-16 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden">
+<div className="border-b border-white/10 p-8 flex flex-wrap gap-6 justify-between">
+{steps.map((s,i)=>{
+ const n=i+1;
+ const active=step===n;
+ const done=step>n;
+ return <div key={s} className="flex items-center gap-3">
+ <div className={`h-11 w-11 rounded-full border flex items-center justify-center ${done?"bg-yellow-400 text-black border-yellow-400":active?"border-yellow-400 text-yellow-400":"border-white/15 text-zinc-500"}`}>
+ {done?<Check size={18}/>:n}
+ </div>
+ <div><p className="text-xs text-zinc-500">Step {n}</p><p className="text-white">{s}</p></div>
+ </div>
+})}
+</div>
 
-        <div className="text-center">
+<div className="p-10">
 
-          <span className="inline-flex rounded-full border border-yellow-400/30 bg-yellow-400/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.30em] text-yellow-400">
-            Founding Member Application
-          </span>
+{step===1 && <>
+<h3 className="text-3xl text-white font-bold mb-8">Personal Information</h3>
+<div className="grid md:grid-cols-2 gap-6">
+{["firstName","lastName","email","phone","city"].map((f)=>(
+<div key={f}>
+<label className="block text-zinc-300 mb-2 capitalize">{f.replace(/([A-Z])/g," $1")}</label>
+<input name={f} value={(formData as any)[f]} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white"/>
+</div>
+))}
+<div>
+<label className="block text-zinc-300 mb-2">Province</label>
+<select name="province" value={formData.province} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white">
+<option value="">Select Province</option>
+{provinces.map(p=><option key={p}>{p}</option>)}
+</select>
+</div>
+</div>
+</>}
 
-          <h2 className="mt-8 text-4xl font-extrabold text-white md:text-5xl">
-            Start Your Application
-          </h2>
+{step===2 && <>
+<h3 className="text-3xl text-white font-bold mb-8">Professional Background</h3>
+<div className="grid md:grid-cols-2 gap-6">
+<div>
+<label className="block text-zinc-300 mb-2">Profession</label>
+<select name="profession" value={formData.profession} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white">
+<option value="">Select</option>
+{professions.map(p=><option key={p}>{p}</option>)}
+</select>
+</div>
+<div>
+<label className="block text-zinc-300 mb-2">Contribution</label>
+<select name="contribution" value={formData.contribution} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white">
+<option value="">Select</option>
+{contributions.map(c=><option key={c}>{c}</option>)}
+</select>
+</div>
+{formData.profession==="Other (Please Specify)"&&
+<div className="md:col-span-2">
+<label className="block text-zinc-300 mb-2">Specify Profession</label>
+<input name="otherProfession" value={formData.otherProfession} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white"/>
+</div>}
+<div><label className="block text-zinc-300 mb-2">Company</label><input name="company" value={formData.company} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white"/></div>
+<div><label className="block text-zinc-300 mb-2">Years Experience</label><input name="experience" value={formData.experience} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white"/></div>
+<div className="md:col-span-2"><label className="block text-zinc-300 mb-2">LinkedIn</label><input name="linkedin" value={formData.linkedin} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-white"/></div>
+<div className="md:col-span-2">
+<label className="flex flex-col items-center justify-center border-2 border-dashed border-white/10 rounded-3xl p-10 cursor-pointer">
+<Upload className="text-yellow-400 mb-3"/>
+<span className="text-white">Upload CV</span>
+<input type="file" className="hidden" onChange={update}/>
+</label>
+</div>
+</div>
+</>}
 
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-zinc-400">
-            Complete the application in five simple steps.
-            You can review all information before submitting.
-          </p>
+{step===3 && <>
+<h3 className="text-3xl text-white font-bold mb-8">Motivation</h3>
+<div className="space-y-6">
+<div><label className="block mb-2 text-zinc-300">Why do you want to become a Founding Member?</label><textarea name="motivation" rows={5} value={formData.motivation} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 p-5 text-white"/></div>
+<div><label className="block mb-2 text-zinc-300">What unique value will you bring?</label><textarea name="value" rows={5} value={formData.value} onChange={update} className="w-full rounded-2xl bg-white/5 border border-white/10 p-5 text-white"/></div>
+</div>
+</>}
 
-        </div>
+{step===4 && <>
+<h3 className="text-3xl text-white font-bold mb-8">Commitment</h3>
+<div className="space-y-5 text-white">
+{[
+["meetings","I am available for strategic meetings."],
+["collaboration","I am willing to collaborate nationally."],
+["confidentiality","I agree to confidentiality requirements."],
+["terms","I accept the Terms & Conditions."]
+].map(([n,l])=>(
+<label key={n} className="flex gap-3 items-center">
+<input type="checkbox" name={n} checked={(formData as any)[n]} onChange={update}/>
+<span>{l}</span>
+</label>
+))}
+</div>
+</>}
 
-        {/* Progress */}
+{step===5 && <>
+<h3 className="text-3xl text-white font-bold mb-8">Review</h3>
+<div className="grid md:grid-cols-2 gap-4 text-zinc-300">
+<p><strong>Name:</strong> {formData.firstName} {formData.lastName}</p>
+<p><strong>Email:</strong> {formData.email}</p>
+<p><strong>Profession:</strong> {formData.profession==="Other (Please Specify)"?formData.otherProfession:formData.profession}</p>
+<p><strong>Contribution:</strong> {formData.contribution}</p>
+</div>
+<button className="mt-10 w-full rounded-2xl bg-yellow-400 py-4 font-semibold text-black hover:bg-yellow-300">
+Submit Application
+</button>
+</>}
 
-        <div className="mt-20">
+<div className="mt-12 flex justify-between">
+<button type="button" onClick={back} disabled={step===1} className="inline-flex items-center rounded-2xl border border-white/10 px-6 py-3 text-white disabled:opacity-40">
+<ArrowLeft className="mr-2" size={18}/>Back
+</button>
 
-          <div className="grid gap-6 md:grid-cols-5">
+{step<5 && (
+<button type="button" onClick={next} className="inline-flex items-center rounded-2xl bg-yellow-400 px-6 py-3 font-semibold text-black">
+Next<ArrowRight className="ml-2" size={18}/>
+</button>
+)}
+</div>
 
-            {steps.map((step) => {
-
-              const Icon = step.icon;
-
-              const active = step.number === currentStep;
-
-              return (
-
-                <div
-                  key={step.number}
-                  className={`
-                    rounded-2xl
-                    border
-                    p-5
-                    transition-all
-                    ${
-                      active
-                        ? "border-yellow-400 bg-yellow-400/10"
-                        : "border-white/10 bg-white/5"
-                    }
-                  `}
-                >
-
-                  <div
-                    className={`
-                      flex
-                      h-12
-                      w-12
-                      items-center
-                      justify-center
-                      rounded-xl
-                      ${
-                        active
-                          ? "bg-yellow-400 text-black"
-                          : "bg-zinc-900 text-yellow-400"
-                      }
-                    `}
-                  >
-
-                    <Icon className="h-6 w-6" />
-
-                  </div>
-
-                  <p className="mt-5 text-sm uppercase tracking-[0.25em] text-zinc-500">
-                    Step {step.number}
-                  </p>
-
-                  <h3 className="mt-2 font-semibold text-white">
-                    {step.title}
-                  </h3>
-
-                </div>
-
-              );
-
-            })}
-
-          </div>
-
-        </div>
-
-        {/* Form Card */}
-
-        <div className="mt-16 rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-
-          <h3 className="text-2xl font-bold text-white">
-            Personal Information
-          </h3>
-
-          <p className="mt-3 text-zinc-400">
-            Tell us a little about yourself.
-          </p>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-
-            <div>
-
-              <label className="mb-3 block text-sm font-medium text-zinc-300">
-                First Name
-              </label>
-
-              <input
-                type="text"
-                className="
-                  w-full
-                  rounded-2xl
-                  border
-                  border-white/10
-                  bg-black/40
-                  px-5
-                  py-4
-                  text-white
-                  outline-none
-                  transition
-                  focus:border-yellow-400
-                "
-              />
-
-            </div>
-
-            <div>
-
-              <label className="mb-3 block text-sm font-medium text-zinc-300">
-                Surname
-              </label>
-
-              <input
-                type="text"
-                className="
-                  w-full
-                  rounded-2xl
-                  border
-                  border-white/10
-                  bg-black/40
-                  px-5
-                  py-4
-                  text-white
-                  outline-none
-                  transition
-                  focus:border-yellow-400
-                "
-              />
-
-            </div>
-
-            <div>
-
-              <label className="mb-3 block text-sm font-medium text-zinc-300">
-                Email Address
-              </label>
-
-              <input
-                type="email"
-                className="
-                  w-full
-                  rounded-2xl
-                  border
-                  border-white/10
-                  bg-black/40
-                  px-5
-                  py-4
-                  text-white
-                  outline-none
-                  transition
-                  focus:border-yellow-400
-                "
-              />
-
-            </div>
-
-            <div>
-
-              <label className="mb-3 block text-sm font-medium text-zinc-300">
-                Phone Number
-              </label>
-
-              <input
-                type="tel"
-                className="
-                  w-full
-                  rounded-2xl
-                  border
-                  border-white/10
-                  bg-black/40
-                  px-5
-                  py-4
-                  text-white
-                  outline-none
-                  transition
-                  focus:border-yellow-400
-                "
-              />
-
-            </div>
-
-            <div>
-
-              <label className="mb-3 block text-sm font-medium text-zinc-300">
-                Province
-              </label>
-
-              <select
-                className="
-                  w-full
-                  rounded-2xl
-                  border
-                  border-white/10
-                  bg-black/40
-                  px-5
-                  py-4
-                  text-white
-                  outline-none
-                  focus:border-yellow-400
-                "
-              >
-                <option>Choose Province</option>
-                <option>Eastern Cape</option>
-                <option>Free State</option>
-                <option>Gauteng</option>
-                <option>KwaZulu-Natal</option>
-                <option>Limpopo</option>
-                <option>Mpumalanga</option>
-                <option>North West</option>
-                <option>Northern Cape</option>
-                <option>Western Cape</option>
-              </select>
-
-            </div>
-
-          </div>
-
-          {/* Buttons */}
-
-          <div className="mt-12 flex justify-end">
-
-            <button
-              className="
-                rounded-2xl
-                bg-yellow-400
-                px-8
-                py-4
-                font-semibold
-                text-black
-                transition
-                hover:scale-105
-              "
-            >
-              Continue →
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
+</div>
+</div>
+</div>
+</section>
   );
 }

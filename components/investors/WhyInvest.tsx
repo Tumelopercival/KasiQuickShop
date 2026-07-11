@@ -1,176 +1,94 @@
+
 import {
   TrendingUp,
-  Boxes,
-  Truck,
-  Cpu,
-  Users,
-  ShieldCheck,
+  Network,
+  Landmark,
+  LineChart,
 } from "lucide-react";
 
 const reasons = [
   {
     icon: TrendingUp,
-    title: "High Growth Market",
+    title: "High-Growth Market",
     description:
-      "South Africa's township retail economy represents one of the country's largest and fastest-growing consumer markets.",
+      "Tap into one of South Africa's largest and fastest-growing retail sectors.",
   },
   {
-    icon: Boxes,
-    title: "Scalable Business Model",
+    icon: Network,
+    title: "National Ecosystem",
     description:
-      "Our ecosystem is designed to expand from community level to a national retail network with consistent operational standards.",
+      "Invest in an integrated platform connecting retail, logistics, technology and manufacturing.",
   },
   {
-    icon: Truck,
-    title: "Integrated Supply Chain",
+    icon: Landmark,
+    title: "Scalable Model",
     description:
-      "Distribution, logistics and wholesale operate together to improve efficiency and strengthen long-term profitability.",
+      "Built for disciplined national expansion with long-term strategic partnerships.",
   },
   {
-    icon: Cpu,
-    title: "Technology Platform",
+    icon: LineChart,
+    title: "Long-Term Impact",
     description:
-      "Modern retail technology enables inventory management, reporting, ordering and operational visibility across the ecosystem.",
-  },
-  {
-    icon: Users,
-    title: "Entrepreneur Network",
-    description:
-      "Local entrepreneurs own and operate stores while benefiting from the support of a national ecosystem and trusted brand.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Long-Term Vision",
-    description:
-      "Our strategy focuses on sustainable growth, national expansion and long-term value creation for investors and communities.",
+      "Help create sustainable businesses, jobs and economic growth across communities.",
   },
 ];
 
 export default function WhyInvest() {
   return (
-    <section className="bg-zinc-950 py-24">
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-
-        {/* Heading */}
-
-        <div className="text-center max-w-4xl mx-auto mb-20">
-
-          <p className="uppercase tracking-[0.25em] text-yellow-400 font-semibold mb-4">
-            WHY INVEST
+    <section
+      id="why-invest"
+      className="relative border-t border-white/10 bg-[#050505] py-28"
+    >
+      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-400">
+            Why Invest
           </p>
 
-          <h2 className="text-5xl font-extrabold text-white leading-tight">
-
-            Investing In More Than
+          <h2 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-6xl">
+            Invest In More Than
             <br />
-
-            <span className="text-yellow-400">
-              Convenience Stores
-            </span>
-
+            Retail.
           </h2>
 
-          <p className="text-zinc-300 text-xl leading-9 mt-8">
-
-            Kasi QuickShop combines retail, logistics, technology,
-            infrastructure and entrepreneurship into one integrated
-            ecosystem designed for national growth and long-term value
-            creation.
-
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+            Invest in the infrastructure powering South Africa's first
+            youth-owned retail ecosystem.
           </p>
-
         </div>
 
-        {/* Cards */}
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          {reasons.map((item, index) => {
-
-            const Icon = item.icon;
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+          {reasons.map((reason, index) => {
+            const Icon = reason.icon;
 
             return (
-
               <div
-                key={index}
-                className="bg-zinc-900 rounded-3xl border border-zinc-800 p-8 hover:border-yellow-400 hover:-translate-y-2 transition-all duration-300"
+                key={reason.title}
+                className={`px-8 text-center ${
+                  index !== 0 ? "xl:border-l xl:border-white/10" : ""
+                }`}
               >
-
-                <div className="w-16 h-16 rounded-2xl bg-yellow-400 flex items-center justify-center mb-6">
-
-                  <Icon className="w-8 h-8 text-black" />
-
+                <div className="flex justify-center">
+                  <Icon
+                    className="h-10 w-10 text-yellow-400"
+                    strokeWidth={1.8}
+                  />
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-4">
-
-                  {item.title}
-
+                <h3 className="mt-6 text-2xl font-semibold text-white">
+                  {reason.title}
                 </h3>
 
-                <p className="text-zinc-400 leading-8">
-
-                  {item.description}
-
+                <p className="mx-auto mt-5 max-w-[240px] text-[15px] leading-7 text-zinc-400">
+                  {reason.description}
                 </p>
-
               </div>
-
             );
-
           })}
-
         </div>
-
-        {/* Bottom Statement */}
-
-        <div className="mt-24 bg-black border border-yellow-500/30 rounded-[40px] p-12">
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-            <div>
-
-              <p className="uppercase tracking-[0.25em] text-yellow-400 font-semibold mb-4">
-                OUR VISION
-              </p>
-
-              <h3 className="text-4xl font-bold text-white leading-tight">
-
-                Building South Africa's
-                <br />
-
-                First Youth-Owned
-                <br />
-
-                Retail Ecosystem.
-
-              </h3>
-
-            </div>
-
-            <div>
-
-              <p className="text-zinc-300 text-lg leading-9">
-
-                We believe the future of township retail lies in
-                combining entrepreneurship, technology, logistics,
-                wholesale distribution and infrastructure into one
-                scalable national platform. By investing in Kasi
-                QuickShop, you are investing in a model designed to
-                create businesses, jobs and long-term economic growth
-                across South Africa.
-
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
       </div>
 
+      <div className="mx-auto mt-24 h-px max-w-7xl bg-gradient-to-r from-transparent via-yellow-400/60 to-transparent" />
     </section>
   );
 }

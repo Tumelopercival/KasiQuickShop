@@ -1,12 +1,10 @@
-import Button from "@/components/ui/Button";
+
 import Link from "next/link";
+import { ArrowRight, Download } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[780px] lg:h-[850px]">
-
-      {/* Background */}
-
+    <section className="relative min-h-[980px] overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -14,149 +12,50 @@ export default function Hero() {
         }}
       />
 
-      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-black/80 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050505] to-transparent" />
 
-      <div className="absolute inset-0 bg-black/70" />
+      <div className="relative z-10 mx-auto flex min-h-[980px] max-w-7xl items-center px-6 lg:px-12">
+        <div className="max-w-[620px]">
 
-      {/* Gradient */}
+          <span className="inline-flex rounded-full border border-yellow-400/30 bg-yellow-400/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-yellow-400 backdrop-blur-xl">
+            Investment Opportunity
+          </span>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent" />
-
-      {/* Content */}
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
-
-        <div className="max-w-3xl">
-
-          <p className="uppercase tracking-[0.3em] text-yellow-400 font-semibold mb-6">
-
-            INVESTORS
-
-          </p>
-
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
-
-            <span className="text-white">
-              Invest In
-            </span>
-
+          <h1 className="mt-8 text-5xl font-extrabold leading-[0.92] tracking-tight md:text-7xl xl:text-[5.5rem]">
+            <span className="text-white">INVEST IN</span>
             <br />
-
-            <span className="text-yellow-400">
-              South Africa's
-            </span>
-
+            <span className="text-yellow-400">SOUTH AFRICA'S</span>
             <br />
-
-            <span className="text-white">
-              Retail Future.
-            </span>
-
+            <span className="text-white">RETAIL FUTURE.</span>
           </h1>
 
-          <p className="mt-8 text-xl text-zinc-300 leading-9 max-w-2xl">
-
-            Kasi QuickShop is building South Africa's first
-            youth-owned retail ecosystem by combining
-            technology, logistics, wholesale, infrastructure
-            and entrepreneurship into one scalable national model.
-
+          <p className="mt-8 max-w-[560px] text-lg leading-9 text-zinc-300 md:text-xl">
+            Invest in the infrastructure powering South Africa's first youth-owned
+            retail ecosystem—connecting entrepreneurs, suppliers,
+            manufacturers, logistics and technology into one national platform.
           </p>
 
-          <div className="mt-12 flex flex-col sm:flex-row gap-5">
-
-            <Button>
-
-              Become An Investor
-
-            </Button>
-
-            <Link href="#opportunity">
-
-              <Button variant="outline">
-
-                View Opportunity
-
-              </Button>
-
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="#application"
+              className="inline-flex items-center justify-center rounded-2xl bg-yellow-400 px-8 py-4 font-semibold text-black transition hover:bg-yellow-300 hover:shadow-[0_15px_40px_rgba(250,204,21,0.25)]"
+            >
+              Become an Investor
+              <ArrowRight className="ml-3 h-5 w-5" />
             </Link>
 
+            <Link
+              href="#"
+              className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-black/30 px-8 py-4 font-semibold text-white backdrop-blur-xl transition hover:border-yellow-400/50 hover:bg-white/5"
+            >
+              <Download className="mr-3 h-5 w-5 text-yellow-400" />
+              Investment Prospectus
+            </Link>
           </div>
-
-          {/* Stats */}
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 border-t border-white/20 pt-8">
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-
-                R180B+
-
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-
-                Market
-
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-
-                20K
-
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-
-                Target Stores
-
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-
-                150K+
-
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-
-                Jobs
-
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-
-                9
-
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-
-                Provinces
-
-              </p>
-
-            </div>
-
-          </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

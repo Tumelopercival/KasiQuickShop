@@ -1,137 +1,134 @@
 import {
+  Rocket,
   Users,
-  Network,
-  Landmark,
-  Lightbulb,
+  BarChart3,
+  Star,
 } from "lucide-react";
 
-const pillars = [
+const features = [
   {
-    title: "A National Vision",
+    icon: Rocket,
+    title: (
+      <>
+        Help Build a
+        <br />
+        National Ecosystem
+      </>
+    ),
     description:
-      "KASI QUICKSHOP is building South Africa's first youth-owned retail ecosystem by integrating technology, wholesale, logistics, infrastructure, entrepreneurship and education into one connected national platform.",
-    icon: Landmark,
+      "Play a foundational role in building infrastructure that will transform communities across South Africa.",
   },
   {
-    title: "Built by Professionals",
-    description:
-      "We are bringing together engineers, technologists, financial experts, legal professionals, retail specialists and entrepreneurs who believe in building lasting institutions that serve communities across South Africa.",
     icon: Users,
+    title: (
+      <>
+        Collaborate With
+        <br />
+        Exceptional People
+      </>
+    ),
+    description:
+      "Work alongside builders, innovators and operators who are obsessed with excellence and impact.",
   },
   {
-    title: "One Connected Ecosystem",
+    icon: BarChart3,
+    title: (
+      <>
+        Create Lasting
+        <br />
+        Economic Impact
+      </>
+    ),
     description:
-      "Every discipline contributes to a shared vision. From software platforms and distribution networks to modern retail stores and training programmes, every part strengthens the whole ecosystem.",
-    icon: Network,
+      "Drive job creation, empower entrepreneurs and strengthen local economies for generations to come.",
   },
   {
-    title: "Building for Generations",
+    icon: Star,
+    title: (
+      <>
+        Leave a
+        <br />
+        National Legacy
+      </>
+    ),
     description:
-      "Founding Members are helping establish the systems, standards and culture that will guide KASI QUICKSHOP for years to come, creating opportunities that extend far beyond a single business.",
-    icon: Lightbulb,
+      "Be remembered as one of the founders who helped shape South Africa's future retail landscape.",
   },
 ];
 
-export default function WhyFounding() {
+export default function WhyBecomeFounder() {
   return (
     <section
       id="why"
-      className="relative bg-[#050505] py-28"
+      className="relative bg-[#050505] border-t border-white/10"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
 
-        {/* Section Header */}
+        {/* Label */}
 
-        <div className="mx-auto max-w-4xl text-center">
+        <p className="text-center text-[11px] font-semibold uppercase tracking-[0.35em] text-yellow-400">
+          WHY BECOME A FOUNDER
+        </p>
 
-          <span className="inline-flex rounded-full border border-yellow-400/30 bg-yellow-400/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-yellow-400 backdrop-blur-xl">
-            Why Founding Members Matter
-          </span>
+        {/* Heading */}
 
-          <h2 className="mt-8 text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-            We're Building More Than A Company.
-          </h2>
+        <h2 className="mt-5 text-center text-4xl font-bold tracking-tight text-white md:text-5xl">
+          Help Build Something That Outlives Us All
+        </h2>
 
-          <p className="mt-8 text-lg leading-8 text-zinc-400 md:text-xl">
-            KASI QUICKSHOP is assembling professionals from across South Africa
-            who share a long-term vision of transforming township retail.
-            Becoming a Founding Member means helping design, build and strengthen
-            a national ecosystem that empowers entrepreneurs, creates jobs and
-            delivers lasting community impact.
-          </p>
+        {/* Description */}
 
-        </div>
+        <p className="mx-auto mt-5 max-w-xl text-center text-[15px] leading-7 text-zinc-400">
+          Founders don't follow trends.
+          They create legacies.
+          <br />
+          Here's why exceptional people are joining us.
+        </p>
 
-        {/* Cards */}
+        {/* Features */}
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2">
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
 
-          {pillars.map((item) => {
-            const Icon = item.icon;
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
 
             return (
               <div
-                key={item.title}
-                className="
-                  group
-                  rounded-3xl
-                  border
-                  border-white/10
-                  bg-white/5
-                  p-8
-                  backdrop-blur-xl
-                  transition-all
-                  duration-300
-                  hover:-translate-y-2
-                  hover:border-yellow-400/40
-                  hover:bg-white/[0.07]
-                  hover:shadow-[0_20px_50px_rgba(250,204,21,0.08)]
-                "
+                key={index}
+                className={`
+                  relative
+                  px-8
+                  text-center
+                  ${
+                    index !== 0
+                      ? "xl:border-l xl:border-white/10"
+                      : ""
+                  }
+                `}
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-yellow-400/30 bg-yellow-400/10">
-                  <Icon className="h-8 w-8 text-yellow-400" />
+                <div className="flex justify-center">
+                  <Icon
+                    strokeWidth={1.8}
+                    className="h-10 w-10 text-yellow-400"
+                  />
                 </div>
 
-                <h3 className="mt-8 text-2xl font-bold text-white">
-                  {item.title}
+                <h3 className="mt-6 text-2xl font-semibold leading-tight text-white">
+                  {feature.title}
                 </h3>
 
-                <p className="mt-5 leading-8 text-zinc-400">
-                  {item.description}
+                <p className="mx-auto mt-5 max-w-[240px] text-[15px] leading-7 text-zinc-400">
+                  {feature.description}
                 </p>
               </div>
             );
           })}
-
         </div>
-
-        {/* Bottom Statement */}
-
-        <div
-          className="
-            mt-20
-            rounded-3xl
-            border
-            border-yellow-400/20
-            bg-gradient-to-r
-            from-yellow-400/10
-            via-yellow-400/5
-            to-transparent
-            p-10
-            backdrop-blur-xl
-          "
-        >
-          <p className="text-center text-xl font-medium leading-9 text-white md:text-2xl">
-            <span className="text-yellow-400 font-bold">
-              Founding Members
-            </span>{" "}
-            are not simply joining an organisation. They are helping create the
-            foundation upon which South Africa's first youth-owned retail
-            ecosystem will be built.
-          </p>
-        </div>
-
       </div>
+
+      {/* Bottom Gold Line */}
+
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-70" />
     </section>
   );
 }

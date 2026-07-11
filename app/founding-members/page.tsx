@@ -1,12 +1,6 @@
 import Hero from "@/components/founding-members/Hero";
 import WhyFounding from "@/components/founding-members/WhyFounding";
-import Professions from "@/components/founding-members/Professions";
-import Ecosystem from "@/components/founding-members/Ecosystem";
-import Principles from "@/components/founding-members/Principles";
-import Benefits from "@/components/founding-members/Benefits";
-import Journey from "@/components/founding-members/Journey";
 import ApplicationForm from "@/components/founding-members/ApplicationForm";
-import FAQ from "@/components/founding-members/FAQ";
 import CTA from "@/components/founding-members/CTA";
 
 export const metadata = {
@@ -20,13 +14,7 @@ export default function FoundingMembersPage() {
     <main className="bg-[#050505] text-white">
       <Hero />
       <WhyFounding />
-      <Professions />
-      <Ecosystem />
-      <Principles />
-      <Benefits />
-      <Journey />
       <ApplicationForm />
-      <FAQ />
       <CTA />
     </main>
   );
