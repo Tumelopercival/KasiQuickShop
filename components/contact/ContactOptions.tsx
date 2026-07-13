@@ -1,122 +1,133 @@
 import {
+  MessageCircle,
+  Handshake,
   Store,
   Briefcase,
-  Handshake,
-  Truck,
-  Newspaper,
-  MessageCircle,
 } from "lucide-react";
 
-const contacts = [
+const options = [
   {
-    icon: Store,
-    title: "Entrepreneurs",
+    icon: MessageCircle,
+    title: (
+      <>
+        General
+        <br />
+        Enquiries
+      </>
+    ),
     description:
-      "Interested in owning a Kasi QuickShop store? Speak with our entrepreneur development team.",
-  },
-  {
-    icon: Briefcase,
-    title: "Investors",
-    description:
-      "Learn about investment opportunities and our long-term national growth strategy.",
+      "Questions about KASI QUICKSHOP, our ecosystem, products, services or general information.",
   },
   {
     icon: Handshake,
-    title: "Careers",
+    title: (
+      <>
+        Partnerships
+        <br />
+        & Investment
+      </>
+    ),
     description:
-      "Explore career opportunities and become part of our growing team.",
+      "Connect with us regarding strategic partnerships, suppliers, manufacturers and investment opportunities.",
   },
   {
-    icon: Truck,
-    title: "Suppliers",
+    icon: Store,
+    title: (
+      <>
+        Entrepreneur
+        <br />
+        Opportunities
+      </>
+    ),
     description:
-      "Partner with Kasi QuickShop by supplying products, logistics or business services.",
+      "Interested in owning and operating a KASI QUICKSHOP store? We'd love to hear from you.",
   },
   {
-    icon: Newspaper,
-    title: "Media",
+    icon: Briefcase,
+    title: (
+      <>
+        Careers
+        <br />
+        & Founders
+      </>
+    ),
     description:
-      "Press enquiries, interviews, announcements and media partnerships.",
-  },
-  {
-    icon: MessageCircle,
-    title: "General Enquiries",
-    description:
-      "Questions about Kasi QuickShop? Our team is ready to assist you.",
+      "Register your interest in joining our founding team or future career opportunities.",
   },
 ];
 
 export default function ContactOptions() {
   return (
-    <section className="bg-white py-24">
+    <section
+      id="contact-options"
+      className="relative border-t border-white/10 bg-[#050505]"
+    >
+      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* Label */}
 
-        <div className="text-center max-w-4xl mx-auto mb-20">
+        <p className="text-center text-[11px] font-semibold uppercase tracking-[0.35em] text-yellow-400">
+          HOW CAN WE HELP?
+        </p>
 
-          <p className="uppercase tracking-[0.25em] text-yellow-500 font-semibold mb-4">
-            CONTACT OPTIONS
-          </p>
+        {/* Heading */}
 
-          <h2 className="text-5xl font-extrabold text-black leading-tight">
+        <h2 className="mx-auto mt-6 max-w-5xl text-center text-4xl font-bold tracking-tight text-white md:text-5xl xl:text-6xl">
+          Every Conversation
+          <br />
+          Starts With
+          <span className="text-yellow-400">
+            {" "}A Connection.
+          </span>
+        </h2>
 
-            How Can
-            <br />
+        {/* Description */}
 
-            We Help You?
+        <p className="mx-auto mt-8 max-w-3xl text-center text-lg leading-8 text-zinc-400">
+          Whether you're looking to invest, partner, build a business or
+          simply learn more about our mission, our team is ready to help.
+        </p>
 
-          </h2>
+        {/* Options */}
 
-          <p className="text-zinc-600 text-xl leading-9 mt-8">
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
 
-            Choose the option that best matches your enquiry and we'll
-            connect you with the right team.
-
-          </p>
-
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          {contacts.map((contact, index) => {
-
-            const Icon = contact.icon;
+          {options.map((option, index) => {
+            const Icon = option.icon;
 
             return (
-
               <div
-                key={index}
-                className="bg-zinc-50 border border-zinc-200 rounded-[32px] p-8 hover:border-yellow-400 hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                key={option.description}
+                className={`px-8 text-center ${
+                  index !== 0 ? "xl:border-l xl:border-white/10" : ""
+                }`}
               >
-
-                <div className="w-16 h-16 rounded-2xl bg-yellow-400 flex items-center justify-center mb-6">
-
-                  <Icon className="w-8 h-8 text-black" />
-
+                <div className="flex justify-center">
+                  <Icon
+                    className="h-10 w-10 text-yellow-400"
+                    strokeWidth={1.8}
+                  />
                 </div>
 
-                <h3 className="text-2xl font-bold mb-4">
-
-                  {contact.title}
-
+                <h3 className="mt-6 text-2xl font-semibold leading-tight text-white">
+                  {option.title}
                 </h3>
 
-                <p className="text-zinc-600 leading-8">
-
-                  {contact.description}
-
+                <p className="mx-auto mt-5 max-w-[240px] text-[15px] leading-7 text-zinc-400">
+                  {option.description}
                 </p>
 
               </div>
-
             );
-
           })}
 
         </div>
 
       </div>
 
+      {/* Gold Divider */}
+
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-70" />
     </section>
   );
 }

@@ -1,38 +1,107 @@
-import Button from "@/components/ui/Button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section className="bg-black py-28">
+    <section className="relative overflow-hidden bg-[#050505] py-32">
 
-      <div className="max-w-5xl mx-auto text-center px-6">
+      {/* Background Glow */}
 
-        <h2 className="text-6xl font-extrabold text-white leading-tight">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-yellow-400/5 blur-3xl" />
+      </div>
 
-          Your Business.
-          <br />
+      {/* Content */}
 
-          <span className="text-yellow-400">
-            Your Community.
-          </span>
+      <div className="relative mx-auto max-w-5xl px-6 text-center lg:px-12">
 
-        </h2>
+        {/* Label */}
 
-        <p className="text-zinc-400 text-xl mt-8 max-w-3xl mx-auto">
-
-          Join South Africa's first youth-owned retail ecosystem and
-          build a business that creates opportunity for your family and
-          your community.
-
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-400">
+          BUILD WITH US
         </p>
 
-        <div className="mt-12">
+        {/* Heading */}
 
-          <Button>
+        <h2
+          className="
+            mt-8
+            text-5xl
+            md:text-6xl
+            xl:text-7xl
+            font-extrabold
+            leading-tight
+            tracking-tight
+            text-white
+          "
+        >
+          The Next Great
+          <br />
+          South African
+          <br />
+          <span className="text-yellow-400">
+            Retail Story
+            <br />
+            Could Be Yours.
+          </span>
+        </h2>
 
-            Apply To Become A Kasi QuickShop Entrepreneur
+        {/* Description */}
 
-          </Button>
+        <p
+          className="
+            mx-auto
+            mt-10
+            max-w-3xl
+            text-lg
+            md:text-xl
+            leading-9
+            text-zinc-400
+          "
+        >
+          Join a movement that's creating opportunities for entrepreneurs
+          to build sustainable businesses while transforming communities
+          across South Africa. Together, we're building the country's
+          first youth-owned retail ecosystem.
+        </p>
 
+        {/* CTA Button */}
+
+        <div className="mt-14">
+          <Link
+            href="#entrepreneur-application"
+            className="
+              group
+              inline-flex
+              items-center
+              justify-center
+              rounded-2xl
+              bg-yellow-400
+              px-10
+              py-5
+              text-lg
+              font-semibold
+              text-black
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:bg-yellow-300
+              hover:shadow-[0_20px_50px_rgba(250,204,21,0.28)]
+            "
+          >
+            Apply As An Entrepreneur
+
+            <ArrowRight
+              className="
+                ml-3
+                h-5
+                w-5
+                transition-transform
+                duration-300
+                group-hover:translate-x-1
+              "
+            />
+          </Link>
         </div>
 
       </div>

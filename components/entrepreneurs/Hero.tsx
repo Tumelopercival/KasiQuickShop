@@ -1,109 +1,136 @@
-import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { ArrowRight, Store } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[780px] lg:h-[820px]">
+    <section className="relative overflow-hidden min-h-[980px] lg:h-[1020px]">
 
       {/* Background Image */}
+
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('/entrepreneurs-hero.png')",
+          backgroundPosition: "center center",
         }}
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* Overlays */}
 
-      {/* Left Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent" />
+      <div className="absolute inset-0 bg-black/45" />
+
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-black/80 to-transparent" />
+
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050505] to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
 
-        <div className="max-w-3xl">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 lg:px-12">
 
-          <p className="uppercase tracking-[0.3em] text-yellow-400 font-semibold mb-6">
-            ENTREPRENEURS
-          </p>
+        <div className="max-w-[650px]">
 
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
+          {/* Badge */}
 
-            <span className="text-yellow-400">
-              Own A Business.
+          <div className="inline-flex items-center rounded-full border border-yellow-400/30 bg-yellow-400/10 px-5 py-2 backdrop-blur-xl">
+
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-yellow-400">
+              Entrepreneur Opportunities
+            </span>
+
+          </div>
+
+          {/* Heading */}
+
+          <h1 className="mt-8 text-5xl font-extrabold leading-[0.92] tracking-tight md:text-6xl xl:text-[5.4rem]">
+
+            <span className="text-white">
+              OWN THE
             </span>
 
             <br />
 
-            <span className="text-white">
-              Build A Legacy.
+            <span className="text-yellow-400">
+              FUTURE OF
+            </span>
+
+            <br />
+
+            <span className="text-yellow-400">
+              RETAIL.
             </span>
 
           </h1>
 
-          <p className="mt-8 text-xl text-zinc-300 leading-9 max-w-2xl">
+          {/* Description */}
 
-            Become part of South Africa's first youth-owned retail ecosystem.
-            Own a professionally branded Kasi QuickShop store backed by
-            training, technology, logistics, marketing and a national support
-            network designed to help you succeed.
-
+          <p className="mt-8 max-w-[580px] text-lg leading-9 text-zinc-300 md:text-xl">
+            Build your own business with the support of South Africa's
+            first youth-owned retail ecosystem. KASI QUICKSHOP creates
+            opportunities for entrepreneurs to own and operate modern
+            community retail stores backed by technology, logistics,
+            national procurement and ongoing business support.
           </p>
 
-          <div className="mt-12 flex flex-col sm:flex-row gap-5">
+          {/* Buttons */}
 
-            <Button>
-              Apply Now
-            </Button>
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
 
-            <Link href="#journey">
-              <Button variant="outline">
-                How It Works
-              </Button>
+            <Link
+              href="#entrepreneur-application"
+              className="
+                group
+                inline-flex
+                items-center
+                justify-center
+                rounded-2xl
+                bg-yellow-400
+                px-8
+                py-4
+                text-base
+                font-semibold
+                text-black
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                hover:bg-yellow-300
+                hover:shadow-[0_15px_40px_rgba(250,204,21,0.25)]
+              "
+            >
+              Apply As An Entrepreneur
+
+              <ArrowRight className="ml-3 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+
             </Link>
 
-          </div>
+            <Link
+              href="#why-entrepreneur"
+              className="
+                group
+                inline-flex
+                items-center
+                justify-center
+                rounded-2xl
+                border
+                border-white/15
+                bg-black/30
+                px-8
+                py-4
+                text-base
+                font-semibold
+                text-white
+                backdrop-blur-xl
+                transition-all
+                duration-300
+                hover:border-yellow-400/50
+                hover:bg-white/5
+              "
+            >
 
-          {/* Quick Stats */}
+              <Store className="mr-3 h-5 w-5 text-yellow-400" />
 
-          <div className="grid grid-cols-3 gap-8 mt-16 border-t border-white/20 pt-8">
+              Learn More
 
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-                20,000
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-                Target Stores
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-                150k+
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-                Potential Jobs
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-                9
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-                Provinces
-              </p>
-
-            </div>
+            </Link>
 
           </div>
 

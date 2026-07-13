@@ -1,149 +1,151 @@
 "use client";
 
-import { useState } from "react";
-import Button from "@/components/ui/Button";
-import {
-  Store,
-  Briefcase,
-  Users,
-  Truck,
-  Newspaper,
-  MessageCircle,
-} from "lucide-react";
+import { Send, Lock } from "lucide-react";
 
-const contactTypes = [
-  {
-    id: "general",
-    title: "General",
-    icon: MessageCircle,
-  },
-  {
-    id: "entrepreneur",
-    title: "Entrepreneur",
-    icon: Store,
-  },
-  {
-    id: "investor",
-    title: "Investor",
-    icon: Briefcase,
-  },
-  {
-    id: "career",
-    title: "Careers",
-    icon: Users,
-  },
-  {
-    id: "supplier",
-    title: "Supplier",
-    icon: Truck,
-  },
-  {
-    id: "media",
-    title: "Media",
-    icon: Newspaper,
-  },
+const subjects = [
+  "General Enquiry",
+  "Investment",
+  "Supplier Partnership",
+  "Entrepreneur Opportunity",
+  "Founding Member",
+  "Careers",
+  "Media",
+  "Other",
 ];
 
 export default function ContactForm() {
-  const [selected, setSelected] = useState("general");
+  const input =
+    "w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white placeholder:text-zinc-500 outline-none transition-all duration-300 focus:border-yellow-400";
+
+  const select =
+    "w-full rounded-2xl border border-white/10 bg-[#111111] px-5 py-4 text-white outline-none transition-all duration-300 focus:border-yellow-400";
 
   return (
-    <section className="bg-zinc-950 py-24">
+    <section
+      id="contact-form"
+      className="bg-[#050505] py-28"
+    >
+      <div className="mx-auto max-w-7xl px-6">
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl md:p-12">
 
-        {/* Heading */}
+          {/* Heading */}
 
-        <div className="text-center mb-16">
+          <div className="text-center">
 
-          <p className="uppercase tracking-[0.25em] text-yellow-400 font-semibold mb-4">
-            CONTACT PORTAL
-          </p>
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-400">
+              Contact Us
+            </p>
 
-          <h2 className="text-5xl font-extrabold text-white">
-            How Can We Help You?
-          </h2>
+            <h2 className="mt-5 text-4xl font-bold text-white md:text-5xl">
+              Let's Start The Conversation.
+            </h2>
 
-          <p className="text-zinc-300 text-xl mt-6 max-w-3xl mx-auto leading-9">
-            Choose the option below and the contact form will
-            automatically adapt to your enquiry.
-          </p>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-400">
+              Tell us how we can help. Whether you're interested in
+              investment, partnerships, entrepreneurship, careers or
+              general enquiries, our team will get back to you.
+            </p>
 
-        </div>
+          </div>
 
-        {/* Selection Cards */}
+          {/* Form */}
 
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          <form className="mt-12 grid gap-6 md:grid-cols-2">
 
-          {contactTypes.map((type) => {
+            <input
+              className={input}
+              placeholder="Full Name"
+            />
 
-            const Icon = type.icon;
+            <input
+              className={input}
+              placeholder="Company (Optional)"
+            />
 
-            return (
+            <input
+              type="email"
+              className={input}
+              placeholder="Email Address"
+            />
+
+            <input
+              className={input}
+              placeholder="Phone Number"
+            />
+
+            <div className="md:col-span-2">
+
+              <select className={select}>
+                <option className="bg-[#111111]">
+                  Select Subject
+                </option>
+
+                {subjects.map((subject) => (
+                  <option
+                    key={subject}
+                    className="bg-[#111111]"
+                  >
+                    {subject}
+                  </option>
+                ))}
+
+              </select>
+
+            </div>
+
+            <div className="md:col-span-2">
+
+              <textarea
+                rows={8}
+                className={input}
+                placeholder="Tell us how we can help..."
+              />
+
+            </div>
+
+            <div className="md:col-span-2 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+
+              <p className="flex items-center gap-2 text-sm text-zinc-500">
+
+                <Lock className="h-4 w-4" />
+
+                Your information is kept confidential and used only to
+                respond to your enquiry.
+
+              </p>
 
               <button
-                key={type.id}
-                type="button"
-                onClick={() => setSelected(type.id)}
-                className={`rounded-[32px] border p-8 text-left transition-all duration-300
-
-                ${
-                  selected === type.id
-                    ? "bg-yellow-400 border-yellow-400 scale-105"
-                    : "bg-black border-zinc-800 hover:border-yellow-400"
-                }`}
+                type="submit"
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+                  rounded-2xl
+                  bg-yellow-400
+                  px-8
+                  py-4
+                  text-lg
+                  font-semibold
+                  text-black
+                  transition-all
+                  duration-300
+                  hover:bg-yellow-300
+                "
               >
+                Send Message
 
-                <Icon
-                  className={`w-10 h-10 mb-6
-
-                  ${
-                    selected === type.id
-                      ? "text-black"
-                      : "text-yellow-400"
-                  }`}
-                />
-
-                <h3
-                  className={`text-2xl font-bold
-
-                  ${
-                    selected === type.id
-                      ? "text-black"
-                      : "text-white"
-                  }`}
-                >
-                  {type.title}
-                </h3>
+                <Send className="ml-3 h-5 w-5" />
 
               </button>
 
-            );
+            </div>
 
-          })}
-
-        </div>
-
-        {/* Dynamic Form */}
-
-        <div className="bg-black rounded-[40px] border border-zinc-800 p-10">
-
-          <h3 className="text-4xl font-bold text-white mb-8">
-
-            Dynamic Form Coming Next...
-
-          </h3>
-
-          <Button>
-
-            Continue
-
-          </Button>
+          </form>
 
         </div>
 
       </div>
-
     </section>
   );
 }

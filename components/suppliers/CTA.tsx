@@ -1,120 +1,103 @@
 import Link from "next/link";
-import Button from "@/components/ui/Button";
-import { ArrowRight, Factory, Truck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden py-32">
-      {/* Background */}
+    <section className="relative overflow-hidden bg-[#050505] py-32">
+      {/* Background Glow */}
 
-      <div className="absolute inset-0 bg-[#050505]" />
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-yellow-400/5 blur-3xl" />
+      </div>
 
-      {/* Gold Glow */}
+      {/* Content */}
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(250,204,21,0.12),transparent_70%)]" />
+      <div className="relative mx-auto max-w-5xl px-6 text-center lg:px-12">
 
-      {/* Top Border */}
+        {/* Label */}
 
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent" />
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-400">
+          Strategic Partnerships
+        </p>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-        <div
+        {/* Heading */}
+
+        <h2
           className="
-            rounded-[36px]
-            border
-            border-white/10
-            bg-white/5
-            backdrop-blur-2xl
-            overflow-hidden
+            mt-8
+            text-5xl
+            md:text-6xl
+            xl:text-7xl
+            font-extrabold
+            leading-tight
+            tracking-tight
+            text-white
           "
         >
-          <div className="px-8 py-16 md:px-14 lg:px-20 lg:py-20 text-center">
-            {/* Badge */}
+          Great Retail
+          <br />
+          Starts With
+          <br />
+          <span className="text-yellow-400">
+            Great Partners.
+          </span>
+        </h2>
 
-            <div className="inline-flex items-center gap-3 rounded-full border border-yellow-400/20 bg-yellow-400/10 px-5 py-3">
-              <Factory className="w-5 h-5 text-yellow-400" />
+        {/* Description */}
 
-              <span className="uppercase tracking-[0.25em] text-xs font-semibold text-yellow-400">
-                Strategic Supplier Partnerships
-              </span>
-            </div>
+        <p
+          className="
+            mx-auto
+            mt-10
+            max-w-3xl
+            text-lg
+            md:text-xl
+            leading-9
+            text-zinc-400
+          "
+        >
+          Together we can build stronger supply chains, support South African
+          manufacturers, empower entrepreneurs and create lasting economic
+          impact across the country.
+        </p>
 
-            {/* Heading */}
+        {/* CTA Button */}
 
-            <h2 className="mt-8 text-4xl md:text-6xl font-extrabold leading-tight">
-              <span className="text-white">
-                Help Power
-              </span>
+        <div className="mt-14">
+          <Link
+            href="#supplier-application"
+            className="
+              group
+              inline-flex
+              items-center
+              justify-center
+              rounded-2xl
+              bg-yellow-400
+              px-10
+              py-5
+              text-lg
+              font-semibold
+              text-black
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:bg-yellow-300
+              hover:shadow-[0_20px_50px_rgba(250,204,21,0.28)]
+            "
+          >
+            Become a Supplier
 
-              <br />
-
-              <span className="text-yellow-400">
-                South Africa's Future Retail Ecosystem
-              </span>
-            </h2>
-
-            {/* Description */}
-
-            <p className="mt-8 max-w-3xl mx-auto text-xl leading-9 text-zinc-300">
-              We're building a national ecosystem that connects manufacturers,
-              suppliers, logistics partners and entrepreneurs through one
-              integrated retail network. Join us in creating sustainable growth,
-              expanding market access and delivering lasting value to
-              communities across South Africa.
-            </p>
-
-            {/* Buttons */}
-
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-5">
-              <Button>
-                Become a Supplier
-
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-
-              <Link href="/contact">
-                <Button variant="outline">
-                  Contact Procurement Team
-                </Button>
-              </Link>
-            </div>
-
-            {/* Bottom Metrics */}
-
-            <div className="mt-16 grid gap-6 md:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-6">
-                <h3 className="text-3xl font-bold text-yellow-400">
-                  National
-                </h3>
-
-                <p className="mt-3 text-zinc-400">
-                  Retail Expansion Vision
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-6">
-                <Truck className="mx-auto w-8 h-8 text-yellow-400 mb-4" />
-
-                <p className="text-lg font-semibold text-white">
-                  Integrated Logistics
-                </p>
-
-                <p className="mt-2 text-zinc-400">
-                  Connecting suppliers with communities.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-6">
-                <h3 className="text-3xl font-bold text-yellow-400">
-                  Long-Term
-                </h3>
-
-                <p className="mt-3 text-zinc-400">
-                  Strategic Partnerships
-                </p>
-              </div>
-            </div>
-          </div>
+            <ArrowRight
+              className="
+                ml-3
+                h-5
+                w-5
+                transition-transform
+                duration-300
+                group-hover:translate-x-1
+              "
+            />
+          </Link>
         </div>
       </div>
     </section>

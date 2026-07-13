@@ -1,94 +1,104 @@
-
 import {
-  Boxes,
-  Handshake,
-  Truck,
+  Users,
+  TrendingUp,
+  ClipboardList,
   Landmark,
 } from "lucide-react";
 
-const reasons = [
+const items = [
   {
-    icon: Boxes,
+    icon: Users,
     title: (
       <>
-        National
+        Founding
         <br />
-        Distribution
+        Focus
       </>
     ),
     description:
-      "Access a growing nationwide retail network serving communities across South Africa.",
+      "We're currently recruiting Founding Members who will help shape South Africa's first youth-owned retail ecosystem.",
   },
   {
-    icon: Handshake,
+    icon: TrendingUp,
     title: (
       <>
-        Long-Term
+        Future
         <br />
-        Partnerships
+        Expansion
       </>
     ),
     description:
-      "Build strategic relationships focused on sustainable growth and mutual success.",
+      "National recruitment will begin as KASI QUICKSHOP expands across South Africa.",
   },
   {
-    icon: Truck,
+    icon: ClipboardList,
     title: (
       <>
-        Efficient
+        Register
         <br />
-        Supply Chain
+        Early
       </>
     ),
     description:
-      "Support an integrated logistics and distribution ecosystem designed for scale.",
+      "Registering your interest today helps us understand future workforce demand and skills requirements.",
   },
   {
     icon: Landmark,
     title: (
       <>
-        Shared Economic
+        National
         <br />
         Impact
       </>
     ),
     description:
-      "Help strengthen local manufacturing, empower entrepreneurs and create jobs.",
+      "Every registration strengthens our ability to demonstrate employment demand to government and strategic partners.",
   },
 ];
 
-export default function WhyPartner() {
+export default function CurrentStatus() {
   return (
     <section
-      id="why-partner"
+      id="current-status"
       className="relative border-t border-white/10 bg-[#050505]"
     >
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
+        {/* Section Label */}
 
         <p className="text-center text-[11px] font-semibold uppercase tracking-[0.35em] text-yellow-400">
-          WHY PARTNER
+          CURRENT STATUS
         </p>
+
+        {/* Heading */}
 
         <h2 className="mx-auto mt-6 max-w-5xl text-center text-4xl font-bold tracking-tight text-white md:text-5xl xl:text-6xl">
-          Grow With A
+          Building The Team
           <br />
-          National Ecosystem.
+          That Will Build
+          <br />
+          The Future.
         </h2>
 
+        {/* Description */}
+
         <p className="mx-auto mt-8 max-w-3xl text-center text-lg leading-8 text-zinc-400">
-          We're building more than stores. We're building an integrated retail
-          ecosystem that creates long-term opportunities for suppliers,
-          manufacturers and strategic partners across South Africa.
+          We're currently assembling our Founding Members and strategic
+          leadership team. While operational recruitment has not yet begun,
+          we're inviting South Africans to register their interest so we can
+          better understand future workforce demand and connect with talented
+          people as we grow.
         </p>
 
+        {/* Features */}
+
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
-          {reasons.map((reason, index) => {
-            const Icon = reason.icon;
+          {items.map((item, index) => {
+            const Icon = item.icon;
 
             return (
               <div
-                key={reason.description}
-                className={`px-8 text-center ${
+                key={index}
+                className={`relative px-8 text-center ${
                   index !== 0 ? "xl:border-l xl:border-white/10" : ""
                 }`}
               >
@@ -100,18 +110,19 @@ export default function WhyPartner() {
                 </div>
 
                 <h3 className="mt-6 text-2xl font-semibold leading-tight text-white">
-                  {reason.title}
+                  {item.title}
                 </h3>
 
                 <p className="mx-auto mt-5 max-w-[240px] text-[15px] leading-7 text-zinc-400">
-                  {reason.description}
+                  {item.description}
                 </p>
               </div>
             );
           })}
         </div>
-
       </div>
+
+      {/* Bottom Gold Divider */}
 
       <div className="h-px w-full bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-70" />
     </section>

@@ -1,122 +1,44 @@
-import Button from "@/components/ui/Button";
-import {
-  Factory,
-  Truck,
-  PackageCheck,
-  Building2,
-} from "lucide-react";
-
-const trustItems = [
-  {
-    icon: Factory,
-    title: "Manufacturer Partnerships",
-  },
-  {
-    icon: Truck,
-    title: "National Distribution",
-  },
-  {
-    icon: PackageCheck,
-    title: "Scalable Supply Chain",
-  },
-  {
-    icon: Building2,
-    title: "Long-Term Growth",
-  },
-];
+import Link from "next/link";
+import { ArrowRight, Truck } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[900px] lg:h-[920px]">
-      {/* Background */}
+    <section id="hero" className="relative overflow-hidden min-h-[980px] lg:h-[1020px]">
+      <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage:"url('/suppliers-hero.png')",backgroundPosition:"center center"}} />
+      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-black/80 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050505] to-transparent" />
 
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/suppliers-hero.png')",
-        }}
-      />
-
-      {/* Dark Overlay */}
-
-      <div className="absolute inset-0 bg-black/50" />
-
-      {/* Left Gradient */}
-
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent" />
-
-      {/* Bottom Fade */}
-
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
-
-      {/* Content */}
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
-        <div className="max-w-3xl">
-          <p className="uppercase tracking-[0.25em] text-yellow-400 font-semibold mb-5">
-            Strategic Supplier Partnerships
-          </p>
-
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
-            <span className="text-yellow-400">
-              Become a Strategic
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 lg:px-12">
+        <div className="max-w-[650px]">
+          <div className="inline-flex items-center rounded-full border border-yellow-400/30 bg-yellow-400/10 px-5 py-2 backdrop-blur-xl">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-yellow-400">
+              Strategic Supplier Partnerships
             </span>
-
-            <br />
-
-            <span className="text-white">
-              Supply Partner
-            </span>
-          </h1>
-
-          <p className="mt-8 text-xl text-zinc-300 max-w-2xl leading-9">
-            Help power South Africa's first youth-owned retail ecosystem by
-            supplying quality products, services and innovative solutions to a
-            growing national retail network.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-5">
-            <Button>
-              Become a Supplier
-            </Button>
-
-            <Button variant="outline">
-              Supply Categories
-            </Button>
           </div>
 
-          {/* Trust Cards */}
+          <h1 className="mt-8 text-5xl md:text-6xl xl:text-[5.4rem] font-extrabold leading-[0.92] tracking-tight">
+            <span className="text-white">POWER</span><br/>
+            <span className="text-white">SOUTH AFRICA'S</span><br/>
+            <span className="text-yellow-400">RETAIL FUTURE.</span>
+          </h1>
 
-          <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl">
-            {trustItems.map((item) => {
-              const Icon = item.icon;
+          <p className="mt-8 max-w-[580px] text-lg md:text-xl leading-9 text-zinc-300">
+            Partner with KASI QUICKSHOP and help build South Africa's first youth-owned retail ecosystem.
+            Together, we can strengthen local supply chains, empower entrepreneurs and deliver quality
+            products to communities nationwide.
+          </p>
 
-              return (
-                <div
-                  key={item.title}
-                  className="
-                    rounded-2xl
-                    border
-                    border-white/10
-                    bg-white/5
-                    backdrop-blur-xl
-                    p-5
-                    transition-all
-                    duration-300
-                    hover:border-yellow-400/40
-                    hover:bg-white/10
-                  "
-                >
-                  <div className="w-12 h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-yellow-400" />
-                  </div>
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <Link href="#supplier-application" className="group inline-flex items-center justify-center rounded-2xl bg-yellow-400 px-8 py-4 text-base font-semibold text-black transition-all duration-300 hover:bg-yellow-300 hover:-translate-y-0.5">
+              Become a Supplier
+              <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform"/>
+            </Link>
 
-                  <h3 className="text-white text-sm font-semibold leading-6">
-                    {item.title}
-                  </h3>
-                </div>
-              );
-            })}
+            <Link href="#why-partner" className="group inline-flex items-center justify-center rounded-2xl border border-white/15 bg-black/30 backdrop-blur-xl px-8 py-4 text-base font-semibold text-white hover:border-yellow-400/50">
+              <Truck className="mr-3 h-5 w-5 text-yellow-400"/>
+              Partnership Information
+            </Link>
           </div>
         </div>
       </div>

@@ -1,21 +1,21 @@
 import Hero from "@/components/entrepreneurs/Hero";
-import WhyJoin from "@/components/entrepreneurs/WhyJoin";
-import Benefits from "@/components/entrepreneurs/Benefits";
-import Journey from "@/components/entrepreneurs/Journey";
-import Requirements from "@/components/entrepreneurs/Requirements";
-import FAQ from "@/components/entrepreneurs/FAQ";
+import WhyBecomeEntrepreneur from "@/components/entrepreneurs/WhyBecomeEntrepreneur";
+import EntrepreneurApplicationForm from "@/components/entrepreneurs/EntrepreneurApplicationForm";
 import CTA from "@/components/entrepreneurs/CTA";
+
+export const metadata = {
+  title: "Entrepreneurs | KASI QUICKSHOP",
+  description:
+    "Build your own business with South Africa's first youth-owned retail ecosystem.",
+};
 
 export default function EntrepreneursPage() {
   return (
-    <>
+    <main className="bg-[#050505] text-white">
       <Hero />
-      <WhyJoin />
-      <Benefits />
-      <Journey />
-      <Requirements />
-      <FAQ />
+      <WhyBecomeEntrepreneur />
+      <EntrepreneurApplicationForm />
       <CTA />
-    </>
+    </main>
   );
 }

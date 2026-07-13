@@ -1,26 +1,20 @@
 import Hero from "@/components/suppliers/Hero";
 import WhyPartner from "@/components/suppliers/WhyPartner";
-import SupplyCategories from "@/components/suppliers/SupplyCategories";
-import SupplyNetwork from "@/components/suppliers/SupplyNetwork";
-import WhyChoose from "@/components/suppliers/WhyChoose";
-import SupplierStandards from "@/components/suppliers/SupplierStandards";
-import SupplierJourney from "@/components/suppliers/SupplierJourney";
-import SupplierApplication from "@/components/suppliers/SupplierApplication";
-import FAQ from "@/components/suppliers/FAQ";
+import SupplierApplicationForm from "@/components/suppliers/SupplierApplicationForm";
 import CTA from "@/components/suppliers/CTA";
+
+export const metadata = {
+  title: "Suppliers | KASI QUICKSHOP",
+  description:
+    "Partner with KASI QUICKSHOP and help build South Africa's first youth-owned retail ecosystem. Join our growing network of manufacturers, wholesalers, distributors and strategic suppliers.",
+};
 
 export default function SuppliersPage() {
   return (
-    <main className="bg-[#050505]">
+    <main className="bg-[#050505] text-white">
       <Hero />
       <WhyPartner />
-      <SupplyCategories />
-      <SupplyNetwork />
-      <WhyChoose />
-      <SupplierStandards />
-      <SupplierJourney />
-      <SupplierApplication />
-      <FAQ />
+      <SupplierApplicationForm />
       <CTA />
     </main>
   );

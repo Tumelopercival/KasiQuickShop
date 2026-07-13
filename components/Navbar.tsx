@@ -10,12 +10,13 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-[999] bg-transparent">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
+
         {/* Logo */}
 
         <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
-            alt="Kasi QuickShop Logo"
+            alt="KASI QUICKSHOP Logo"
             width={260}
             height={120}
             priority
@@ -25,7 +26,8 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
 
-        <div className="hidden lg:flex items-center gap-10 text-white font-medium">
+        <div className="hidden lg:flex items-center gap-8 text-white font-medium">
+
           <Link href="/" className="transition hover:text-yellow-400">
             Home
           </Link>
@@ -34,8 +36,16 @@ export default function Navbar() {
             About
           </Link>
 
-          <Link href="/ecosystem" className="transition hover:text-yellow-400">
-            Ecosystem
+          <Link href="/founding-members" className="transition hover:text-yellow-400">
+            Founders
+          </Link>
+
+          <Link href="/entrepreneurs" className="transition hover:text-yellow-400">
+            Entrepreneurs
+          </Link>
+
+          <Link href="/suppliers" className="transition hover:text-yellow-400">
+            Suppliers
           </Link>
 
           <Link href="/investors" className="transition hover:text-yellow-400">
@@ -49,33 +59,37 @@ export default function Navbar() {
           <Link href="/contact" className="transition hover:text-yellow-400">
             Contact
           </Link>
+
         </div>
 
-        {/* Investor Portal Button */}
+        {/* Primary CTA */}
 
         <Link
-          href="/investors"
-          className="hidden lg:block rounded-lg bg-yellow-400 px-6 py-3 font-bold text-black transition hover:bg-yellow-300"
+          href="/founding-members"
+          className="hidden lg:block rounded-xl bg-yellow-400 px-6 py-3 font-bold text-black transition-all duration-300 hover:bg-yellow-300 hover:shadow-[0_12px_30px_rgba(250,204,21,0.25)]"
         >
-          Investor Portal
+          Become a Founding Member
         </Link>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
 
         <button
           className="text-4xl text-white lg:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation menu"
+          aria-label="Toggle navigation"
         >
           {mobileMenuOpen ? "✕" : "☰"}
         </button>
+
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Navigation */}
 
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-black/95 backdrop-blur-md">
+        <div className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/10">
+
           <div className="flex flex-col gap-6 px-8 py-8 text-white">
+
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
@@ -93,11 +107,27 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/ecosystem"
+              href="/founding-members"
               onClick={() => setMobileMenuOpen(false)}
               className="hover:text-yellow-400"
             >
-              Ecosystem
+              Founding Members
+            </Link>
+
+            <Link
+              href="/entrepreneurs"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-yellow-400"
+            >
+              Entrepreneurs
+            </Link>
+
+            <Link
+              href="/suppliers"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-yellow-400"
+            >
+              Suppliers
             </Link>
 
             <Link
@@ -125,13 +155,15 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/investors"
+              href="/founding-members"
               onClick={() => setMobileMenuOpen(false)}
-              className="rounded-lg bg-yellow-400 px-6 py-3 text-center font-bold text-black transition hover:bg-yellow-300"
+              className="rounded-xl bg-yellow-400 px-6 py-3 text-center font-bold text-black transition hover:bg-yellow-300"
             >
-              Investor Portal
+              Become a Founding Member
             </Link>
+
           </div>
+
         </div>
       )}
     </nav>

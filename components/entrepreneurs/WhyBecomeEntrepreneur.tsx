@@ -1,93 +1,103 @@
-
 import {
-  Boxes,
-  Handshake,
+  Store,
   Truck,
-  Landmark,
+  TrendingUp,
+  Users,
 } from "lucide-react";
 
-const reasons = [
+const features = [
   {
-    icon: Boxes,
+    icon: Store,
     title: (
       <>
-        National
+        Own Your
         <br />
-        Distribution
+        Store
       </>
     ),
     description:
-      "Access a growing nationwide retail network serving communities across South Africa.",
-  },
-  {
-    icon: Handshake,
-    title: (
-      <>
-        Long-Term
-        <br />
-        Partnerships
-      </>
-    ),
-    description:
-      "Build strategic relationships focused on sustainable growth and mutual success.",
+      "Operate your own KASI QUICKSHOP under a trusted national brand built for long-term success.",
   },
   {
     icon: Truck,
     title: (
       <>
-        Efficient
+        National
         <br />
-        Supply Chain
+        Support
       </>
     ),
     description:
-      "Support an integrated logistics and distribution ecosystem designed for scale.",
+      "Benefit from centralized procurement, logistics, technology and operational support.",
   },
   {
-    icon: Landmark,
+    icon: TrendingUp,
     title: (
       <>
-        Shared Economic
+        Grow Your
+        <br />
+        Business
+      </>
+    ),
+    description:
+      "Scale confidently with business development, digital tools, training and continuous support.",
+  },
+  {
+    icon: Users,
+    title: (
+      <>
+        Create Community
         <br />
         Impact
       </>
     ),
     description:
-      "Help strengthen local manufacturing, empower entrepreneurs and create jobs.",
+      "Create local employment, strengthen township economies and inspire future entrepreneurs.",
   },
 ];
 
-export default function WhyPartner() {
+export default function WhyBecomeEntrepreneur() {
   return (
     <section
-      id="why-partner"
+      id="why-entrepreneur"
       className="relative border-t border-white/10 bg-[#050505]"
     >
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12">
 
+        {/* Section Label */}
+
         <p className="text-center text-[11px] font-semibold uppercase tracking-[0.35em] text-yellow-400">
-          WHY PARTNER
+          WHY BECOME AN ENTREPRENEUR
         </p>
+
+        {/* Heading */}
 
         <h2 className="mx-auto mt-6 max-w-5xl text-center text-4xl font-bold tracking-tight text-white md:text-5xl xl:text-6xl">
-          Grow With A
+          Build A Business.
           <br />
-          National Ecosystem.
+          <span className="text-yellow-400">
+            Build A Legacy.
+          </span>
         </h2>
 
+        {/* Description */}
+
         <p className="mx-auto mt-8 max-w-3xl text-center text-lg leading-8 text-zinc-400">
-          We're building more than stores. We're building an integrated retail
-          ecosystem that creates long-term opportunities for suppliers,
-          manufacturers and strategic partners across South Africa.
+          We're creating opportunities for ambitious South Africans to own
+          modern retail businesses backed by a national ecosystem of
+          technology, logistics, suppliers and ongoing business support.
         </p>
 
+        {/* Feature Grid */}
+
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
-          {reasons.map((reason, index) => {
-            const Icon = reason.icon;
+
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
 
             return (
               <div
-                key={reason.description}
+                key={feature.description}
                 className={`px-8 text-center ${
                   index !== 0 ? "xl:border-l xl:border-white/10" : ""
                 }`}
@@ -100,18 +110,21 @@ export default function WhyPartner() {
                 </div>
 
                 <h3 className="mt-6 text-2xl font-semibold leading-tight text-white">
-                  {reason.title}
+                  {feature.title}
                 </h3>
 
                 <p className="mx-auto mt-5 max-w-[240px] text-[15px] leading-7 text-zinc-400">
-                  {reason.description}
+                  {feature.description}
                 </p>
               </div>
             );
           })}
+
         </div>
 
       </div>
+
+      {/* Bottom Gold Divider */}
 
       <div className="h-px w-full bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-70" />
     </section>

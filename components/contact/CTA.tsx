@@ -1,136 +1,134 @@
-import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden bg-black py-28">
+    <section className="relative overflow-hidden bg-[#050505] py-32">
 
       {/* Background Glow */}
 
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(250,204,21,0.12),transparent_70%)]" />
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-yellow-400/5 blur-3xl" />
+      </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 lg:px-12 text-center">
+      {/* Content */}
 
-        <p className="uppercase tracking-[0.3em] text-yellow-400 font-semibold mb-6">
-          LET'S CONNECT
+      <div className="relative mx-auto max-w-5xl px-6 text-center lg:px-12">
+
+        {/* Label */}
+
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-400">
+          LET'S BUILD TOGETHER
         </p>
 
-        <h2 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
+        {/* Heading */}
 
+        <h2
+          className="
+            mt-8
+            text-5xl
+            md:text-6xl
+            xl:text-7xl
+            font-extrabold
+            leading-tight
+            tracking-tight
+            text-white
+          "
+        >
           Every Great
           <br />
-
-          <span className="text-yellow-400">
-            Partnership
-          </span>
-
+          Partnership
           <br />
-
-          Starts With A Conversation.
-
+          <span className="text-yellow-400">
+            Starts With
+            <br />
+            A Conversation.
+          </span>
         </h2>
 
-        <p className="max-w-3xl mx-auto text-xl text-zinc-300 leading-9 mt-10">
+        {/* Description */}
 
-          Whether you're looking to become an entrepreneur,
-          invest in the future, build your career, supply our
-          growing ecosystem or simply learn more about Kasi
-          QuickShop, we'd love to hear from you.
-
-          <br /><br />
-
-          Together we can create businesses, jobs and lasting
-          opportunities across South Africa.
-
+        <p
+          className="
+            mx-auto
+            mt-10
+            max-w-3xl
+            text-lg
+            md:text-xl
+            leading-9
+            text-zinc-400
+          "
+        >
+          Whether you're looking to invest, become an entrepreneur,
+          supply our growing network, join our founding team or simply
+          learn more about our vision, we'd love to hear from you.
+          Together we're building South Africa's first youth-owned
+          retail ecosystem.
         </p>
 
-        <div className="mt-14 flex flex-col sm:flex-row justify-center gap-5">
+        {/* CTA Buttons */}
 
-          <Button>
+        <div className="mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row">
 
-            Contact Our Team
+          <Link
+            href="#contact-form"
+            className="
+              group
+              inline-flex
+              items-center
+              justify-center
+              rounded-2xl
+              bg-yellow-400
+              px-10
+              py-5
+              text-lg
+              font-semibold
+              text-black
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:bg-yellow-300
+              hover:shadow-[0_20px_50px_rgba(250,204,21,0.28)]
+            "
+          >
+            Get In Touch
 
-          </Button>
-
-          <Link href="/entrepreneurs">
-
-            <Button variant="outline">
-
-              Become An Entrepreneur
-
-            </Button>
-
+            <ArrowRight
+              className="
+                ml-3
+                h-5
+                w-5
+                transition-transform
+                duration-300
+                group-hover:translate-x-1
+              "
+            />
           </Link>
 
-        </div>
-
-        {/* Bottom Statistics */}
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-24">
-
-          <div>
-
-            <h3 className="text-yellow-400 text-5xl font-extrabold">
-
-              20K
-
-            </h3>
-
-            <p className="text-zinc-400 mt-3">
-
-              Future Stores
-
-            </p>
-
-          </div>
-
-          <div>
-
-            <h3 className="text-yellow-400 text-5xl font-extrabold">
-
-              9
-
-            </h3>
-
-            <p className="text-zinc-400 mt-3">
-
-              Provinces
-
-            </p>
-
-          </div>
-
-          <div>
-
-            <h3 className="text-yellow-400 text-5xl font-extrabold">
-
-              150K+
-
-            </h3>
-
-            <p className="text-zinc-400 mt-3">
-
-              Potential Jobs
-
-            </p>
-
-          </div>
-
-          <div>
-
-            <h3 className="text-yellow-400 text-5xl font-extrabold">
-
-              One
-
-            </h3>
-
-            <p className="text-zinc-400 mt-3">
-
-              Shared Vision
-
-            </p>
-
-          </div>
+          <Link
+            href="/founding-members"
+            className="
+              inline-flex
+              items-center
+              justify-center
+              rounded-2xl
+              border
+              border-white/15
+              bg-white/5
+              px-10
+              py-5
+              text-lg
+              font-semibold
+              text-white
+              backdrop-blur-xl
+              transition-all
+              duration-300
+              hover:border-yellow-400/40
+              hover:bg-white/10
+            "
+          >
+            Become a Founding Member
+          </Link>
 
         </div>
 

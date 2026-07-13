@@ -1,23 +1,21 @@
 import Hero from "@/components/careers/Hero";
-import WhyWorkHere from "@/components/careers/WhyWorkHere";
-import Culture from "@/components/careers/Culture";
-import Departments from "@/components/careers/Departments";
-import Benefits from "@/components/careers/Benefits";
-import HiringProcess from "@/components/careers/HiringProcess";
-import FAQ from "@/components/careers/FAQ";
+import CurrentStatus from "@/components/careers/CurrentStatus";
+import CareerInterestForm from "@/components/careers/CareerInterestForm";
 import CTA from "@/components/careers/CTA";
 
-export default function CareersPage() {
+export const metadata = {
+  title: "Future Careers | KASI QUICKSHOP",
+  description:
+    "Register your interest for future career opportunities at KASI QUICKSHOP while we build South Africa's first youth-owned retail ecosystem.",
+};
+
+export default function FutureCareersPage() {
   return (
-    <>
+    <main className="bg-[#050505] text-white">
       <Hero />
-      <WhyWorkHere />
-      <Culture />
-      <Departments />
-      <Benefits />
-      <HiringProcess />
-      <FAQ />
+      <CurrentStatus />
+      <CareerInterestForm />
       <CTA />
-    </>
+    </main>
   );
 }

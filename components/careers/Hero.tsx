@@ -1,162 +1,37 @@
-import Button from "@/components/ui/Button";
+
 import Link from "next/link";
+import { ArrowRight, Briefcase } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden min-h-[780px] lg:h-[850px]">
-
-      {/* Background */}
-
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/careers-hero.png')",
-        }}
-      />
-
-      {/* Overlay */}
-
-      <div className="absolute inset-0 bg-black/70" />
-
-      {/* Gradient */}
-
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-
-      {/* Content */}
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center">
-
-        <div className="max-w-3xl">
-
-          <p className="uppercase tracking-[0.3em] text-yellow-400 font-semibold mb-6">
-
-            CAREERS
-
-          </p>
-
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
-
-            <span className="text-white">
-              Build Your Career.
-            </span>
-
-            <br />
-
-            <span className="text-yellow-400">
-              Help Build
-            </span>
-
-            <br />
-
-            <span className="text-white">
-              South Africa.
-            </span>
-
+    <section className="relative overflow-hidden min-h-[980px] lg:h-[1020px]">
+      <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage:"url('/future-careers-hero.png')",backgroundPosition:"center center"}}/>
+      <div className="absolute inset-0 bg-black/50"/>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-black/80 to-transparent"/>
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050505] to-transparent"/>
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 lg:px-12">
+        <div className="max-w-[640px]">
+          <div className="inline-flex items-center rounded-full border border-yellow-400/30 bg-yellow-400/10 px-5 py-2 backdrop-blur-xl">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-yellow-400">Future Careers</span>
+          </div>
+          <h1 className="mt-8 text-5xl font-extrabold leading-[0.92] tracking-tight md:text-6xl xl:text-[5.4rem]">
+            <span className="text-white">BUILD THE</span><br/>
+            <span className="text-yellow-400">FUTURE</span><br/>
+            <span className="text-white">WITH US.</span>
           </h1>
-
-          <p className="mt-8 text-xl text-zinc-300 leading-9 max-w-2xl">
-
-            Join a team that is transforming township retail through
-            innovation, logistics, technology and entrepreneurship.
-            Build meaningful work while creating lasting impact
-            across South Africa.
-
+          <p className="mt-8 max-w-[560px] text-lg leading-9 text-zinc-300 md:text-xl">
+            We're not recruiting for operational positions yet. Today we're building our Founding Team. Register your interest today and we'll contact you as career opportunities become available across South Africa.
           </p>
-
-          <div className="mt-12 flex flex-col sm:flex-row gap-5">
-
-            <Button>
-
-              View Opportunities
-
-            </Button>
-
-            <Link href="/about">
-
-              <Button variant="outline">
-
-                Learn About Us
-
-              </Button>
-
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <Link href="/founding-members" className="group inline-flex items-center justify-center rounded-2xl bg-yellow-400 px-8 py-4 text-base font-semibold text-black hover:bg-yellow-300">
+              Become a Founding Member <ArrowRight className="ml-3 h-5 w-5"/>
             </Link>
-
+            <Link href="#career-interest" className="group inline-flex items-center justify-center rounded-2xl border border-white/15 bg-black/30 px-8 py-4 text-base font-semibold text-white backdrop-blur-xl">
+              <Briefcase className="mr-3 h-5 w-5 text-yellow-400"/>Register Career Interest
+            </Link>
           </div>
-
-          {/* Stats */}
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 border-t border-white/20 pt-8">
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-
-                9
-
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-
-                Provinces
-
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-
-                20K
-
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-
-                Target Stores
-
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-
-                150K+
-
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-
-                Future Jobs
-
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-yellow-400 text-4xl font-bold">
-
-                One
-
-              </h3>
-
-              <p className="text-zinc-300 mt-2">
-
-                Shared Vision
-
-              </p>
-
-            </div>
-
-          </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }
